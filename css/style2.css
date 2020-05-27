@@ -1,6 +1,14 @@
-style{
+p{
     font-family: "微软雅黑";
     font-size: larger;
     font-style: italic;
     font-weight: bolder;
+    color:blue;
+    letter-spacing: initial;
+    word-spacing: 1em;
+    text-align: center;
+    text-indent: 2em;
+    text-transform: uppercase;
+    line-height: 40px;
+    background-color: #ffffff;
 }

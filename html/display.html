@@ -3,24 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>球鞋展示</title>
+    <title>球鞋品牌展示</title>
     <link rel="stylesheet" href="../css/style2.css" type="text/css"/>
 </head>
-<!--<body background="/5-deiWU/images/body.jpg" background="">
-    <input type="button" class="N__bottom_left" value="111" />
-    
- 
-</body>-->
-<body class="js-ready" style="background-color: #000;" background="/5-deiWU/images/body.jpg">
-    <a class="js-route N__link N__bottom_left" href="/music" data-navigo="true">MUSIC</a>
-    <a class="js-route N__link N__top_left js-toplink" href="/tour" data-navigo="true">TOUR</a>
-    <a class="N__link N__top_right js-toplink" href="op">SHOP</a>
-    <a class="js-route N__link N__bottom_right" href="ideo" data-navigo="true">VIDEO</a>
-    <a class="N__link N__bottom_center js-toggle-social" href="/signup">SIGN UP</a>
-    <a href="/index2/index2.html" data-navigo="true" 
-    class="js-route N__link N__top_center N__person js-toplink" ><img src="/5-deiWU/images/wo.jpg" class="pic"></a>
-    <div>
 
-    </div>
-</body>
+<body>
+        
+<script type="text/javascript">
+    window.onload = function () {
+        var nav = document.getElementById('nav');
+        window.onscroll = function () {
+            var top = document.body.scrollTop ? document.body.scrollTop : document.documentElement.scrollTop//w3c，各ie的兼容
+            if (top >= 40) {
+                addClass(nav, 'nav-fixed');
+            } else {
+                removeClass(nav, 'nav-fixed');
+            }
+        }
+    }
+    function addClass(ele, classname) {
+        var oldClass = ele.className;
+        var pattern = new RegExp('(^|\\s)' + classname + '(\\s|$)');
+        if (!pattern.test(oldClass)) {
+            ele.className += ' ' + classname;
+        }
+    }
+    function removeClass(ele, classname) {
+        var oldClass = ele.className;
+        var pattern = new RegExp('(^|\\s)' + classname + '(\\s|$)');
+        if (pattern.test(oldClass)) {
+            ele.className = ele.className.replace(pattern, ' ');
+        }
+    }
+
+</script>
+ <!-- <div id="nav">-->
+                <!--<table style="width: 100%; height: 100%">
+                    <tr>
+                        <td style="vertical-align: middle; width: 20%; text-align: center;">
+                            <a style="color:white;">xxxxxx</a>
+                        </td>
+                        <td style="width: 80%; text-align: center;">
+                            <asp:Button ID="btbuy"  Style="width: 150px; height: 45px; text-decoration: none;" 
+                            runat="server" Text="点击"  />
+                       </td>
+                    </tr>-->
+               <!-- </table></div>-->
+               <div style="margin: 0 auto; width: 80%; 
+               position: fixed; bottom: 5px; height: 50px; font-size: 0; line-height: 0; z-index: 100; 
+               text-align: center;"><a>xxxxxx</a>
+                <asp:Button ID="Button2"  Style="width: 150px; height: 50px; text-decoration: none;"
+                 runat="server" Text="Apply Order"  />
+             </div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+        
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+        
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+          
+            
+           
+
+</body >
 </html>

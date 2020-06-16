@@ -3,31 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>球鞋品牌展示</title>
+    <title>TOUR</title>
     <link rel="stylesheet" href="../css/style2.css" type="text/css"/>
+    <style>
+        body{
+            background-size: cover;
+        }
+        #first{
+            width: 33%;
+            height: 20%;
+            /*height: 200px;*/
+            float: left;
+            position: center;
+        }
+        #second{
+            width: 33%;
+            height: 50px;
+            float: left;
+            position: center;
+        }
+
+    </style>
 </head>
 
 <body background="/images/background.jpg">
-               <div style="margin: 0 auto; width: 100%; 
-               position: fixed; bottom: 50px; height: 50px; font-size: 20px; line-height: 0; z-index: 100; 
-               text-align: right;"><a href="/index/index.html" ><img src="/images/IMG_-622336382.gif" width="100" height="50"/></a>
-                <asp:Button ID="Button2"  Style="width: 150px; height: 50px; text-decoration: none;"
-                 runat="server" Text="Apply Order"  />
-             </div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-        
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-        
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
-            <div id="first"><img src="/images/body.jpg" width="60%" ></div>
+        <div id="d1" style="position:absolute;text-align: center;background-color:black ;width:100%;z-index: 999;">
+            <a href="/index/index.html" target="_parent">
+                <img src="/images/QQ图片20200614151209.png" height="60px">
+            </a>
+        </div>
+        <script type="text/javascript">
+            function scrollImg(){
+                var posX,posY;
+                if (window.innerHeight) {
+                    posX = window.pageXOffset;
+                    posY = window.pageYOffset;
+                }
+                else if (document.documentElement && document.documentElement.scrollTop) {
+                    posX = document.documentElement.scrollLeft;
+                    posY = document.documentElement.scrollTop;
+                }
+                else if (document.body) {
+                    posX = document.body.scrollLeft;
+                    posY = document.body.scrollTop;
+                }
+              
+                var ad=document.getElementById("d1");
+                ad.style.top=(posY+0)+"px";
+                ad.style.left=(posX+0)+"px";
+                setTimeout("scrollImg()",100);
+            }
+            scrollImg();
+        </script>
+            <div id="second"></div>
+            <div id="second"></div>
+            <div id="second"></div>
+            <div id="second"></div>
+            <div id="second"></div>
+            <div id="second"></div>
+
+            <div id="first"><img src="/images/AIRJORDAN.png" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/NIKE.png" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/ADIDAS.jpg" width="300px" height="200px" ></div>
+            
+            <div id="second"></div>
+            <div id="second"></div>
+            <div id="second"></div>
+
+            <div id="first"><img src="/images/PUMA.png" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/LINING.jpg" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/CONVERSE.jpg" width="300px" height="200px" ></div>
+
+            <div id="second"></div>
+            <div id="second"></div>
+            <div id="second"></div>
+             
+            <div id="first"><img src="/images/GUCCI.jpg" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/LV.jpg" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/BALENCIAGA.jpg" width="300px" height="200px" ></div>
+            
+            <div id="second"></div>
+            <div id="second"></div>
+            <div id="second"></div>
+
+            <div id="first"><img src="/images/GUCCI.jpg" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/LV.jpg" width="300px" height="200px" ></div>
+            <div id="first"><img src="/images/BALENCIAGA.jpg" width="300px" height="200px" ></div>
+
           
             
            

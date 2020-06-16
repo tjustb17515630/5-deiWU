@@ -7,51 +7,10 @@
     <link rel="stylesheet" href="../css/style2.css" type="text/css"/>
 </head>
 
-<body>
-        
-<script type="text/javascript">
-    window.onload = function () {
-        var nav = document.getElementById('nav');
-        window.onscroll = function () {
-            var top = document.body.scrollTop ? document.body.scrollTop : document.documentElement.scrollTop//w3c，各ie的兼容
-            if (top >= 40) {
-                addClass(nav, 'nav-fixed');
-            } else {
-                removeClass(nav, 'nav-fixed');
-            }
-        }
-    }
-    function addClass(ele, classname) {
-        var oldClass = ele.className;
-        var pattern = new RegExp('(^|\\s)' + classname + '(\\s|$)');
-        if (!pattern.test(oldClass)) {
-            ele.className += ' ' + classname;
-        }
-    }
-    function removeClass(ele, classname) {
-        var oldClass = ele.className;
-        var pattern = new RegExp('(^|\\s)' + classname + '(\\s|$)');
-        if (pattern.test(oldClass)) {
-            ele.className = ele.className.replace(pattern, ' ');
-        }
-    }
-
-</script>
- <!-- <div id="nav">-->
-                <!--<table style="width: 100%; height: 100%">
-                    <tr>
-                        <td style="vertical-align: middle; width: 20%; text-align: center;">
-                            <a style="color:white;">xxxxxx</a>
-                        </td>
-                        <td style="width: 80%; text-align: center;">
-                            <asp:Button ID="btbuy"  Style="width: 150px; height: 45px; text-decoration: none;" 
-                            runat="server" Text="点击"  />
-                       </td>
-                    </tr>-->
-               <!-- </table></div>-->
-               <div style="margin: 0 auto; width: 80%; 
-               position: fixed; bottom: 5px; height: 50px; font-size: 0; line-height: 0; z-index: 100; 
-               text-align: center;"><a>xxxxxx</a>
+<body background="/images/background.jpg">
+               <div style="margin: 0 auto; width: 100%; 
+               position: fixed; bottom: 50px; height: 50px; font-size: 20px; line-height: 0; z-index: 100; 
+               text-align: right;"><a href="/index/index.html" ><img src="/images/IMG_-622336382.gif" width="100" height="50"/></a>
                 <asp:Button ID="Button2"  Style="width: 150px; height: 50px; text-decoration: none;"
                  runat="server" Text="Apply Order"  />
              </div>

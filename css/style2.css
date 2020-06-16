@@ -1,22 +1,9 @@
-.clearfix{
-    color:blue;
-}
 
-.N__bottom_left{
-    background-color: blueviolet;
-}
 .pic{
     width: 57px;
     height: 57px;
 }
-.N__bottom_center{
-    text-align:center;
-    bottom:0;
-    right:50%;
-    -webkit-transform:translateX(50%) translateY(100%);
-    -ms-transform:translateX(50%) translateY(100%);
-    transform:translateX(50%) translateY(100%)
-}
+
 #first{
     width: 33%;
     height: 100%;
@@ -27,14 +14,8 @@
 }
 body{ 
     text-align:center;
-    /*background-color: black;*/
+    background-size: 100%;
 } 
-.nav-fixed {
-    background-color: #d3d3d3;
-    width: 78.5%;
-    position: fixed;
-    top: 0;
-    z-index: 9999;
-}
+
 
 

@@ -318,7 +318,8 @@ body[data-route=home]{
 .TB__link{
     font-family:souvenir,Courier,Courier New,Lucida Sans Typewriter,Lucida Typewriter,monospace
 }
-.TB__link,.TB__link:hover{
+.TB__link,
+.TB__link:hover{
     color:#ec1b23
 }
 #__bs_notify__{

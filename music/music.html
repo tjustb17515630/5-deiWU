@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.music {
+    height: 600px;
+    width: 300px;
+    background:rgba(98,91,91,0.9);
+}
+.pic_div {
+    position: absolute;
+}
+.dot {
+    width: 15px;
+    height: 15px;
+    background: #464545;
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 50%;
+    top: 140px;
+    left: 191px;
+}
+.disc {
+    width: 100px;
+    position: absolute;
+    right: 50px;
+    top:100px;
+    transform: rotate(30deg);
+}
+#music_pic {
+    width: 100px;
+    right:100px;
+    top:100px;
+    position: absolute;
+}
+.music_program {
+    height: 2px;
+    width: 100px;
+    background: #555;
+    position: absolute;
+    top: 300px;
+    
+}
+.music_program div {
+    height: 100%;
+    width: 0%;
+    background: red;
+}
+.time {
+    width: 100px;
+    height: 20px;
+    position: relative;
+    left:60px;
+    top: 320px;
+    overflow: hide;
+}
+.time p {
+    padding-left: 50px;
+}
+.time p span:nth-of-type(2) {
+    padding: 0 5px;
+}
+.music_menu {
+    width: 300px;
+    height: 25px;
+    position: relative;
+    top: 500px;
+}
+.music_menu span {
+    width: 30px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+}
+.music_menu span:nth-of-type(1) {
+    margin-left: 8px;
+    background: url(/music/back.png) no-repeat 7px;
+}
+.music_menu span:nth-of-type(2) {
+    margin-left: 80px;
+    background: url(/music/play.png) no-repeat 10px;
+    
+}
+.music_menu span:nth-of-type(3) {
+    margin-left: 100px;
+    background: url(/music/forward.png) no-repeat 7px;
+}
+
+/*body{
+    width: 33%;
+    text-align: center;
+}*/
+    </style>
+</head>
+<body>
+    <audio src="" id="mymusic"></audio>
+    <div class="music" >
+        <div class="pic_div">
+            <img src="/music/disc.png" alt="" class="disc"> 
+            <img src="/music/default.png" alt="" id="music_pic"> 
+            <span class="dot"></span>
+            <div class="music_program">
+                <div id="prograss"></div>
+            </div>
+            <div class="time">
+                <p><span id="currenttime">0:00</span><span>/</span><span id="duration">0:00</span></p>
+            </div>
+            <div class="music_menu">
+                <span onClick="backMusic()" class="span:nth-of-type(1)" ><img src="/music/disc.png" width="40"/></span>
+                <span onClick="playPause()" id="playbtn"><img src="/music/disc.png" width="40"/></span>
+                <span onClick="nextMusic()"><img src="/music/disc.png" width="40"/></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var music=document.getElementById("mymusic");
+    var prograss=document.getElementById("prograss");
+    var curtxt=document.getElementById("currenttime");
+    var duration=document.getElementById("duration");
+    var music_pic=document.getElementById("music_pic");
+    var deg=0;//旋转角度
+    var disctimer,prograsstimer;//碟片计时器,进度条计时器
+    var musicindex=0;//音乐索引
+    var musics=new Array("Delacey - Dream It Possible.mp3","Edward Maya - Love Story.mp3","Uu - 那女孩对我说 (完整版).mp3");//音乐数组
+    var music_pics=new Array("000002","000001","000001");
+    
+    
+    //旋转碟片
+    var disc=document.getElementsByClassName('disc');
+        
+        //音乐时间显示
+        function curtime(txt,misic)
+        {
+            if(music.currentTime<10)
+                {
+                    txt.innerHTML="0:0"+Math.floor(music.currentTime);
+                }else
+            if(music.currentTime<60)
+                {
+                    txt.innerHTML="0:"+Math.floor(music.currentTime);
+                }
+            else
+                {
+                    var minet=parseInt(music.currentTime/60);
+                    var sec=music.currentTime-minet*60;
+                    if(sec<10)
+                        {
+                            txt.innerHTML="0"+minet+":"+"0"+parseInt(sec);
+                        }
+                    else
+                        {
+                            txt.innerHTML="0"+minet+":"+parseInt(sec);
+                        }
+                }
+        }
+        
+        //播放暂停
+        function playPause()
+        {
+            var btn=document.getElementById("playbtn");
+            if(music.paused)
+                {
+                    music.play();
+                    clearInterval(disctimer);//清除碟片的定时器
+                    btn.style.background="url(/music/pause.png) no-repeat 10px";//改变播放暂停键的图标
+                    disctimer=setInterval(function(){
+                    disc[0].style.transform="rotate("+deg+"deg)";
+                    deg+=5;
+                        
+                    //每秒设置进度条长度
+                    },100);
+                    prograsstimer=setInterval(function(){
+                    prograss.style.width=(music.currentTime)*100 / (music.duration)+"%";
+                    curtime(curtxt,music);
+                    if(music.currentTime>=music.duration-1)//片尾跳转下一曲
+                    {
+                        musicindex++;//音乐索引加一
+                        if(musicindex>=musics.length)//如果音乐索引超过长度，将音乐索引清零
+                        {
+                            musicindex=0;
+                        }
+                        getMusic();
+                        music.play();//重载音乐后进行播放
+                    }
+                    },1000);
+                }
+            else
+                {
+                    music.pause();//停止音乐
+                    btn.style.background="url(/music/play.png) no-repeat 10px";
+                    clearInterval(disctimer);//清除碟片滚动的定时器
+                    clearInterval(prograsstimer);//清除进度条的定时器
+                }
+        }
+    
+    //下一曲
+    function nextMusic()
+    {
+        musicindex++;//音乐索引加一
+        if(musicindex>=musics.length)//如果音乐索引超过长度，将音乐索引清零
+            {
+                musicindex=0;
+            }
+        getMusic();
+        music.play();
+    }
+    
+    //上一曲
+    function backMusic()
+    {
+        musicindex--;
+        if(musicindex<0)//如果索引小于0，将索引变为最大值
+            {
+                musicindex=musics.length-1;
+            }
+        getMusic();
+        music.play();
+    }
+        
+    //读取音乐
+        function getMusic()
+        {
+            music.src="/music/"+musics[musicindex];//改变音乐的SRC
+            music_pic.src="/music/"+music_pics[musicindex]+".png";
+            if(music.readyState="complete")
+                {
+                    setTimeout(function(){
+                        duration.innerHTML=parseInt(music.duration/60)+":"+parseInt(music.duration%60);
+                    },1000);//一秒后读取音乐的总时长
+                    
+                }
+        }
+        
+    
+        window.onload=function(){
+            getMusic();
+            
+        }
+</script>
+</html>
